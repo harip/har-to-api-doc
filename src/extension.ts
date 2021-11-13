@@ -22,7 +22,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 		vscode.window.showInformationMessage('Generating files...');
 		const createAction = await createJsonServerFiles(content);
-		vscode.window.showInformationMessage(createAction.message);
+		vscode.window.showInformationMessage(`${createAction.message} - ${createAction.path}`);
 	});
 
 	context.subscriptions.push(disposable);

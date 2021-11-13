@@ -1,3 +1,4 @@
+import * as vscode from 'vscode'; 
 const path = require('path');
 import fs = require('fs-extra');
 import * as _ from "lodash";
@@ -8,10 +9,15 @@ import { createJsonServerFolderStructure, entriesForDbJson, getKeyValuePairsForR
 
 export const createJsonServerFiles = async (content: any) => {
     try {
-        // Parse HAR file
-        const entries = processHarEntriesForJsonServer(JSON.parse(content));
+        // Path
+        const pt = vscode.workspace.workspaceFolders 
+            ? vscode.workspace.workspaceFolders[0].uri.fsPath
+            : path.join(__dirname); 
 
-        const p = "c:\\tmp\\json-server"; // path.join(__dirname, CONSTANTS.JSON_SERVER_FOLDER_NAME);
+        // Parse HAR file
+        const entries = processHarEntriesForJsonServer(JSON.parse(content)); 
+
+        const p = path.join(pt, CONSTANTS.JSON_SERVER_FOLDER_NAME);
         createJsonServerFolderStructure(p);
 
         // Deal with requests that are not GET
@@ -44,7 +50,8 @@ export const createJsonServerFiles = async (content: any) => {
         });
         return {
             status: 'success',
-            message: 'Files created successfully'
+            message: 'Files created successfully',
+            path: p
         };
     } catch (e) {
         console.log(e);

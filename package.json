@@ -1,9 +1,23 @@
 {
 	"name": "har-to-api-doc",
 	"displayName": "har-to-api-doc",
-	"description": "Generate json server files or swagger documentation from har file",
+	"description": "Generate json server files from har file.",
 	"version": "0.0.1",
 	"publisher": "igress",
+	"icon": "icon.png",
+	"keywords": [
+		"har",
+		"json server",
+		"json-server",
+		"html viewer"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/harip/test-snapshot-viewer.git"
+	},
+	"author": {
+		"name": "igress"
+	},
 	"engines": {
 		"vscode": "^1.62.0"
 	},
@@ -18,7 +32,7 @@
 		"commands": [
 			{
 				"command": "harToApi.generate",
-				"title": "Generate Json Server",
+				"title": "Generate Json Server Files",
 				"category": "API Doc"
 			}
 		]
@@ -29,7 +43,8 @@
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
+		"test": "node ./out/test/runTest.js",
+		"package": "vsce package"
 	},
 	"devDependencies": {
 		"@types/fs-extra": "^9.0.13",
@@ -41,6 +56,7 @@
 		"@typescript-eslint/eslint-plugin": "^4.31.1",
 		"@typescript-eslint/parser": "^4.31.1",
 		"@vscode/test-electron": "^1.6.2",
+		"esbuild": "^0.13.13",
 		"eslint": "^7.32.0",
 		"glob": "^7.1.7",
 		"mocha": "^9.1.1",
