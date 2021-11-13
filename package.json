@@ -13,7 +13,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/harip/test-snapshot-viewer.git"
+		"url": "https://github.com/harip/har-to-api-doc.git"
 	},
 	"author": {
 		"name": "igress"
