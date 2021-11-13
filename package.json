@@ -1,6 +1,6 @@
 {
 	"name": "har-to-api-doc",
-	"displayName": "har-to-api-doc",
+	"displayName": "HAR to API",
 	"description": "Generate json server files from har file.",
 	"version": "0.0.1",
 	"publisher": "igress",
@@ -9,7 +9,8 @@
 		"har",
 		"json server",
 		"json-server",
-		"html viewer"
+		"mock api",
+		"mock"
 	],
 	"repository": {
 		"type": "git",
